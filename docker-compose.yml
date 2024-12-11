@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  apache-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8082:80"
+    volumes:
+      - ./files:/var/www/html
+    depends_on:
+      - mysql-server
+
+volumes:
+  mysql-data:
